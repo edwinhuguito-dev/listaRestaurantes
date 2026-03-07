@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const restaurantes = new mongoose.Schema({
 
-    idLocal: {type: Number, required: true},
+    idLocal: {type: Number, required: true, unique: true},
     nombre: {type: String, required: true},
     imagen: {type: String, required: true},
     frase: {type: String, required: true}
 });
 
-module.exports = mongoose.model("Restaurantes", restaurantes, "listaRestaurantes")
+module.exports = mongoose.model("Restaurantes", restaurantes, "listaRestaurantes");
