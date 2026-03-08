@@ -54,3 +54,6 @@ const eliminarRestaurantes = async (req,res) =>{
 };
 
 module.exports = {getRestaurantes, postRestaurantes, putRestaurantes, eliminarRestaurantes};
+
+
+
