@@ -8,7 +8,9 @@ const AppRestaurantes = new mongoose.Schema({
     frase: {type: String, required: true},
     imagenUrl: {type: String, required: true},
     hora: {type: String, required: true},
-    frase1: {type: String, required: true}
+    frase1: {type: String, required: true},
+    favorito: {type: Boolean, default: false},
+    likes: {type: Number, require: true, default: 0}
 
 });
 

@@ -23,7 +23,7 @@ const postRestaurantes = async (req,res) =>{
 
 const putRestaurantes = async (req,res) =>{
     try{
-     const nuevoPut = await ApiRestaurantes.finOneAndUpdate(
+     const nuevoPut = await ApiRestaurantes.findOneAndUpdate(
         {idLocal: req.params.idLocal},
         req.body,
         {new:true}
