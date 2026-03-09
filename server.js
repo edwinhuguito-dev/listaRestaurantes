@@ -5,6 +5,7 @@ const cors = require("cors");
 const listaRestaurantesRoutes = require("./routes/listaRestaurantes.routes");
 const appRestaurantesRoutes = require("./routes/appRestaurantes.routes");
 const listOfDishesRoutes = require("./routes/listOfDishes.routes");
+const datosRamdonRoutes = require("./routes/datosRamdon.routes");
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use("/listaRestaurantes", listaRestaurantesRoutes);
 app.use("/appRestaurantes", appRestaurantesRoutes);
 app.use("/listOfDishes", listOfDishesRoutes);
-
+app.use("/datosRamdon", datosRamdonRoutes);
 
 
 

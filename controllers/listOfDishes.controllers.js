@@ -24,13 +24,13 @@ const postDishes = async(req,res) =>{
 const putDishes = async(req,res) =>{
     try{
         const nuevoPut = await ListaDishes.findOneAndUpdate(
-            {idlocal: req.params.idLocal},
+            {idLocal: req.params.idLocal},
             req.body,
-            {new: true}
+            {returnDocument: "after"}
         );
 
         if(!nuevoPut){
-            return res.status(404).json({mensaje: "No se encontro el plato para actuliazar"});
+            return res.status(404).json({mensaje: "No se encontro el plato para actualizar"});
         }
 
         res.json(nuevoPut);
