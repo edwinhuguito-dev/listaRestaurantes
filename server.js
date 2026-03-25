@@ -9,6 +9,9 @@ const datosRamdonRoutes = require("./routes/datosRamdon.routes");
 const userRoutes = require("./routes/user.routers");
 const mensajesRoutes = require("./routes/messages.router");
 const chatsRoutes = require("./routes/chats.routes");
+const deliveryUser = require("./routes/deliveryUser.router");
+const deliveryChats = require("./routes/deliveryChats.router");
+const deliveryMessages = require("./routes/deliveryMessages.router");
 
 const app = express();
 
@@ -23,6 +26,9 @@ app.use("/datosRamdon", datosRamdonRoutes);
 app.use("/mensajesApp", mensajesRoutes);
 app.use("/usuariosApp", userRoutes);
 app.use("/chatsApp", chatsRoutes);
+app.use("/deliveryUsers", deliveryUser);
+app.use("/deliveryChats", deliveryChats);
+app.use("/deliveryMessages", deliveryMessages);
 
 
 

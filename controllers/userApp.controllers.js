@@ -19,4 +19,22 @@ const postUsers = async (req,res) =>{
     }
 };
 
-module.exports = {getUsers, postUsers};
+
+
+const putUsuario = async (req,res) =>{
+    try{
+        const nuevoPut = await AppUsers.findOneAndUpdate(
+            {id: req.params._id},
+            req.body,
+            {returnDocument: "after"}
+        );
+        if(!nuevoPut){
+            return res.status(404).json({mensaje: "No se encontro el Usuario"});
+        }
+        res.json(nuevoPut);
+    }catch (error){
+        res.status(400).json({mensaje: "No se pudo actualizar la imagen del usuario"});
+    }
+};
+
+module.exports = {getUsers, postUsers, putUsuario};

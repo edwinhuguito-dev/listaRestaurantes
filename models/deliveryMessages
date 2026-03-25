@@ -1,0 +1,15 @@
+const mongoose = require("mongoose");
+
+const deliveryMessages = new mongoose.Schema({
+
+    _id: {type: Number, required: true},
+    chatId: {type: Number, required: true},
+    senderId: {type: Number, required: true},
+    senderType: {type: String, required: true},
+    text: {type: String, required: true},
+    messageType: {type: String, required: true},
+    read: {type: Boolean, default: false},
+    createdAt: {type: String, required: true}
+});
+
+module.exports = mongoose.model("deliverymessages", deliveryMessages, "deliveryMessages");
