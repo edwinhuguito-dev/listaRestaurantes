@@ -13,10 +13,11 @@ const getRegister = async (req, res) =>{
 
 const postRegister = async (req,res) =>{
     try{
-        const newRegister = await registerUsuario.create(req,body);
+        const newRegister = await registerUsuario.create(req.body);
         res.status(201).json(newRegister);
     }catch (error){
-        res.status(400).json({mensaje: "No se pudo crear usuario"});
+        console.log(error);
+        res.status(400).json({mensaje: "No se pudo crear usuario", detalle: error.message});
     }
 };
 
