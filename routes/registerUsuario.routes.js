@@ -5,6 +5,6 @@ const{getRegister, postRegister, postLogin} = require("../controllers/registerUs
 
 router.get("/", getRegister);
 router.post("/", postRegister);
-router.post("/", postLogin)
+router.post("/login", postLogin)
 
 module.exports = router;
