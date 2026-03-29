@@ -1,4 +1,4 @@
-const {verificarToken} = require("../middleware/auth.middlware");
+const {verificarToken} = require("../middlewares/auth.middleware");
 const express = require("express");
 const router = express.Router();
 
