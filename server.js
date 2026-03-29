@@ -12,6 +12,7 @@ const chatsRoutes = require("./routes/chats.routes");
 const deliveryUser = require("./routes/deliveryUser.router");
 const deliveryChats = require("./routes/deliveryChats.router");
 const deliveryMessages = require("./routes/deliveryMessages.router");
+const registerUsuarios = require("./routes/registerUsuario.routes");
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use("/chatsApp", chatsRoutes);
 app.use("/deliveryUsers", deliveryUser);
 app.use("/deliveryChats", deliveryChats);
 app.use("/deliveryMessages", deliveryMessages);
+app.use("/registerUsuario", registerUsuarios);
 
 
 
