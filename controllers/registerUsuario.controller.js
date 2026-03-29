@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const registerUsuario = require("../models/registerUsuario");
 
 const getRegister = async (req, res) =>{
@@ -43,8 +44,16 @@ const postLogin = async (req,res) =>{
         const match = await bcrypt.compare(password, userFound.password);
 
         if(match){
+            const payload = {
+                id: userFound._id,
+                nickname: userFound.nickname
+            };
+
+            const token = jwt.sign(payload,process.env.JWT_SECRET, {expiresIn: "5h"});
+
             res.status(200).json({
-                mensaje: "¡Bienvenido de nuevo!",
+                mensaje: "¡Login exitoso!",
+                token: token,
                 usuario: {
                     name: userFound.name,
                     nickname: userFound.nickname
