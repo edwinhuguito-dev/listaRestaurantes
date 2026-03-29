@@ -32,5 +32,34 @@ const postRegister = async (req,res) =>{
     }
 };
 
+const postLogin = async (req,res) =>{
+    try{
+        const { email, password} = req.body;
 
-module.exports = {getRegister, postRegister};
+        const userFound = await registerUsuario.findOne({email});
+        if(!userFound){
+            return res.status(404).json({mensaje: "Usuario no encontrado"});
+        }
+        const match = await bcrypt.compare(password, userFound.password);
+
+        if(match){
+            res.status(200).json({
+                mensaje: "¡Bienvenido de nuevo!",
+                usuario: {
+                    name: userFound.name,
+                    nickname: userFound.nickname
+                }
+        });
+    }else{
+        res.status(401).json({mensaje: "Contraseña incorrecta"});
+    }
+    }catch (error){
+        res.status(500).json({mensaje: "Error en el servidor", detalle: error.message});
+    }
+};
+
+
+
+
+
+module.exports = {getRegister, postRegister, postLogin};
