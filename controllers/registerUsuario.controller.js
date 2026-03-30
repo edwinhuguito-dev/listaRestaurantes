@@ -4,7 +4,7 @@ const registerUsuario = require("../models/registerUsuario");
 
 const getRegister = async (req, res) =>{
     try{
-        const register = await registerUsuario.find();
+        const register = await registerUsuario.find().select("-password -__v");
         res.json(register);    
     }catch (error){
         res.status(500).json({mensajes: "Error no se pudo registrar"});
