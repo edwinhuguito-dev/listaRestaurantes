@@ -35,7 +35,8 @@ const postRegister = async (req,res) =>{
 
 const postLogin = async (req,res) =>{
     try{
-        const { email, password} = req.body;
+        const email = req.body.email.toLowerCase().trim();
+        const {password} = req.body;
 
         const userFound = await registerUsuario.findOne({email});
         if(!userFound){
